@@ -190,7 +190,6 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data["currentCategory"])
 
 
-
 # Make the tests conveniently executable
 if __name__ == "__main__":
     unittest.main()

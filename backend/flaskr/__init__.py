@@ -8,15 +8,17 @@ from models import setup_db, Question, Category
 
 QUESTIONS_PER_PAGE = 10
 
+
 def paginate_questions(request, selection):
     page = request.args.get("page", 1, type=int)
-    start = (page -1) * QUESTIONS_PER_PAGE
+    start = (page - 1) * QUESTIONS_PER_PAGE
     end = start + QUESTIONS_PER_PAGE
 
     questions = [question.format() for question in selection]
     current_questions = questions[start:end]
 
     return current_questions
+
 
 def get_categories_dictionary(selection):
     categories = {}
@@ -96,7 +98,7 @@ def create_app(test_config=None):
                         "deletedQuestionId": question_id,
                     }
                 )
-        except:
+        except Exception:
             abort(422)
 
     @app.route("/questions", methods=["POST"])
@@ -140,7 +142,7 @@ def create_app(test_config=None):
                         }
                     )
 
-        except:
+        except Exception:
             abort(422)
 
     @app.route("/categories/<int:category_id>/questions", methods=["GET"])
