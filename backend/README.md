@@ -109,12 +109,15 @@ including all categories, current category string and success value
         },
     ],
     'totalQuestions': 100,
-    'categories': { '1' : "Science",
-    '2' : "Art",
-    '3' : "Geography",
-    '4' : "History",
-    '5' : "Entertainment",
-    '6' : "Sports" },
+    'categories':
+        {
+            '1' : "Science",
+            '2' : "Art",
+            '3' : "Geography",
+            '4' : "History",
+            '5' : "Entertainment",
+                6' : "Sports"
+        },
     'currentCategory': 'History',
     'success': true
 }
