@@ -193,16 +193,17 @@ def create_app(test_config=None):
                 if question not in previous_questions
                 ]
 
-        if len(available_questions) == 0:
-            abort(404)
+        question = None
 
-        next_question_id = random.choice(available_questions)
-        next_question = Question.query.filter(
-            Question.id == next_question_id).one_or_none()
+        if len(available_questions) > 0:
+            next_question_id = random.choice(available_questions)
+            next_question = Question.query.filter(
+                Question.id == next_question_id).one_or_none()
+            question = next_question.format()
 
         return jsonify(
             {
-                "question": next_question.format(),
+                "question": question,
                 "success": True
             }
         )
